@@ -21,10 +21,14 @@ jobs:
           cmd: install
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
+      - name: Build project
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
       - name: Start project
         uses: borales/actions-yarn@v4
         with:
-          cmd: dev
+          cmd: preview
       - name: Run Playwright tests
         uses: borales/actions-yarn@v4
         with:
