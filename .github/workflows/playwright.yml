@@ -15,12 +15,20 @@ jobs:
           node-version: lts/*
       - name: Install dependencies
         run: npm install -g yarn && yarn
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
-      - name: Open project
-        run: yarn dev
+      - name: Start project
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build:prod
       - name: Run Playwright tests
-        run: yarn playwright test
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: playwright test
       - uses: actions/upload-artifact@v4
         if: always()
         with:
