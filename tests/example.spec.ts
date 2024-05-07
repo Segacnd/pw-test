@@ -14,6 +14,9 @@ setup('has title', async ({ page, baseURL }) => {
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle("Vite + React + TS");
+  const btn = page.locator('button', { hasText: 'count' })
+  
+  await expect(btn).toBeVisible()
 });
 
 // test('get started link', async ({ page }) => {
