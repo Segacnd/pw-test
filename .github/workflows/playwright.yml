@@ -24,7 +24,7 @@ jobs:
       - name: Start project
         uses: borales/actions-yarn@v4
         with:
-          cmd: build:prod
+          cmd: dev
       - name: Run Playwright tests
         uses: borales/actions-yarn@v4
         with:
