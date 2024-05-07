@@ -34,14 +34,13 @@ const config: PlaywrightTestConfig = {
 		: [['html', { open: 'on-failere', outputFolder: 'artifacts' }]],
 
 	/* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  use: {
-    
+	use: {
 		/* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
 		actionTimeout: 0,
 		headless: false,
 		/* Base URL to use in actions like `await page.goto('/')`. */
 		baseURL: 'http://localhost:4173/',
-    
+
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: 'on-first-retry',
 	},
@@ -56,8 +55,9 @@ const config: PlaywrightTestConfig = {
 		},
 	],
 	webServer: {
-		command: 'yarn dev',
+		command: 'yarn build && yarn preview',
 		url: 'http://localhost:4173/',
+		timeout: 120 * 1000 * 5,
 		reuseExistingServer: !process.env.CI,
 	},
 };
